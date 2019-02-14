@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
-    <title>祝情人节快乐！\(^o^)/ </title>
+    <title>祝 </title>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -29,7 +29,7 @@
             document.title = '祝' + girl + '情人节快乐！\\(^o^)/';
             $('.name').find('span').text(girl);
             var successTip = '你的眼光，举世无双！我完全同意你的观点！';
-            layer.msg('请漂亮的你摸着良心回答一个问题');
+            layer.msg('请漂亮的你摸着良心回答一个问题',{time: 7000});
 
             setTimeout(function () {
                 layer.confirm('你觉得' + boy + '怎么样？', {
@@ -47,20 +47,8 @@
                     showName();
 
                 });
-            }, 5000)
+            }, 7000)
 
-            $('.test').on('click', function () {
-                $(this).off('click');
-                layer.confirm('这是一个明显的彩蛋！', {
-                    btn: ['想看', '不想看'] //按钮
-                }, function () {
-                    layer.msg('送给你\\^o^/');
-                    showCaiDan();
-                }, function () {
-                    layer.msg('我的程序我做主，不想看也得看,哇哈哈！');
-                    showCaiDan();
-                });
-            })
             //默认prompt
 
             // layer.prompt(function (val, index) {
@@ -79,6 +67,18 @@
                 setTimeout(function () {
                     layer.msg('还有一个彩蛋哟！找一找吧=^_^=');
 
+                    $('.test').on('click', function () {
+                        $(this).off('click');
+                        layer.confirm('这是一个明显的彩蛋！', {
+                            btn: ['想看', '不想看'] //按钮
+                        }, function () {
+                            layer.msg('送给你\\^o^/');
+                            showCaiDan();
+                        }, function () {
+                            layer.msg('我的程序我做主，不想看也得看,哇哈哈！');
+                            showCaiDan();
+                        });
+                    })
                 }, 5000)
             }
 
