@@ -1,0 +1,144 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #001;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#snowBackground {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#pinkboard {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    height: 600px;
+}
+
+#xin {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#nameTextImg{
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+}
+.layui-layer-dialog{
+    margin: auto;
+    left: 0;
+    right: 0;
+    top:0;
+}
+.layui-layer-title,.layui-layer-close{display: none !important;}
+
+.test{
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #FFF;
+    text-align: center;
+    height: 50px;
+    z-index: 111;
+    opacity:0;
+  
+}
+.test p:first-child {
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #fff;
+  }
+
+  .test p:first-child span {
+    cursor: pointer;
+    text-shadow: 0px 0px 6px #686868,
+      0px 1px 1px #ddd,
+      0px 2px 1px #d6d6d6,
+      0px 3px 1px #ccc,
+      0px 4px 1px #c5c5c5,
+      0px 5px 1px #c1c1c1,
+      0px 6px 1px #bbb,
+      0px 7px 1px #777,
+      0px 8px 3px rgba(100, 100, 100, 0.4),
+      0px 9px 5px rgba(100, 100, 100, 0.1),
+      0px 10px 7px rgba(100, 100, 100, 0.15),
+      0px 11px 9px rgba(100, 100, 100, 0.2),
+      0px 12px 11px rgba(100, 100, 100, 0.25),
+      0px 13px 15px rgba(100, 100, 100, 0.3);
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    position: relative;
+    top:-50px; 
+  }
+
+/* --------------------------- 固定屏幕样式 ---------------------------------------- */
+
+/*960~1199*/
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*768~959*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*480~767*/
+@media only screen and (min-width: 360px) and (max-width: 767px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*320~479*/
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*240~319*/
+@media only screen and (max-width: 319px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
