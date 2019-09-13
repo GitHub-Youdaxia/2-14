@@ -1,146 +1,22 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)http://www.17sucai.com/preview/1528155/2019-01-22/snow/index.html -->
 <html lang="en">
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
-    <title>祝 </title>
-    <link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8" />
+    <title>嘻嘻嘻</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
 </head>
-
-<body>
-
-    <canvas id="snowBackground"></canvas>
-    <canvas id="pinkboard"></canvas>
-    <canvas id="xin"></canvas>
-    <!-- <img id="nameTextImg" src="sunlina.png" alt=""> -->
-    <div class="test" style="display: none;">
-        <p class="name"><span></span></p>
-    </div>
-    <!-- <canvas id="pinkboard" width="1920" height="889"></canvas> -->
-    <script src="jquery.min.js"></script>
-    <script src="layer/layer.js"></script>
-    <script>
-        (function () {
-            var girl = '孙丽娜';
-            var boy = '游行行';
-            document.title = '祝' + girl + '情人节快乐！\\(^o^)/';
-            $('.name').find('span').text(girl);
-            var successTip = '你的眼光，举世无双！我完全同意你的观点！';
-            layer.msg('请漂亮的你摸着良心回答一个问题',{time: 7000});
-
-            setTimeout(function () {
-                layer.confirm('你觉得' + boy + '怎么样？', {
-                    btn: ['帅气#^_^#', '又帅又懒（＞﹏＜）'] //按钮
-                }, function () {
-                    layer.msg(successTip, {
-                        time: 5000, //
-                    });
-                    showName();
-                }, function () {
-                    layer.msg('也可以不懒哦〒_〒', {
-                        time: 5000, //
-                        btn: ['原来如此', '涨知识了']
-                    });
-                    showName();
-
-                });
-            }, 7000)
-
-            //默认prompt
-
-            // layer.prompt(function (val, index) {
-            //     layer.msg('得到了' + val);
-            //     layer.close(index);
-            // });
-            function showCaiDan() {
-                showFlower();
-            }
-
-            function showName() {
-                $('.test').show().animate({
-                    opacity: '1',
-                    fontSize: "50px",
-                }, 7000);
-                setTimeout(function () {
-                    layer.msg('还有一个彩蛋哟！找一找吧=^_^=');
-
-                    $('.test').on('click', function () {
-                        $(this).off('click');
-                        layer.confirm('这是一个明显的彩蛋！', {
-                            btn: ['想看', '不想看'] //按钮
-                        }, function () {
-                            layer.msg('送给你\\^o^/');
-                            showCaiDan();
-                        }, function () {
-                            layer.msg('我的程序我做主，不想看也得看,哇哈哈！');
-                            showCaiDan();
-                        });
-                    })
-                }, 5000)
-            }
-
-        })()
-    </script>
-    <script src="pinkboard.js"></script>
-
-    <script src="xin.js"></script>
-
-    <!-- <script src="Snow.js">
-
-    </script> -->
-    <canvas id="c" height="500" width="500"></canvas>
-    <script>
-        var b = document.body;
-        var c = document.getElementsByTagName('canvas')[0];
-        var a = c.getContext('2d');
-        document.body.clientWidth;
-    </script>
-    <script>
-        with(m = Math) C = cos, S = sin, P = pow, R = random;
-        c.width = c.height = f = 500;
-        h = -250;
-
-        function p(a, b, c) {
-            if (c > 60) return [S(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) - S(b) * 50, b * f + 50, 625 + C(a * 7) * (13 +
-                5 / (.2 + P(b * 4, 4))) + b * 400, a * 1 - b / 2, a];
-            A = a * 2 - 1;
-            B = b * 2 - 1;
-            if (A * A + B * B < 1) {
-                if (c > 37) {
-                    n = (j = c & 1) ? 6 : 4;
-                    o = .5 / (a + .01) + C(b * 125) * 3 - a * 300;
-                    w = b * h;
-                    return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) *
-                        99 - j * 300, .4 - a * .1 + P(1 - B * B, -h * 6) * .15 - a * b * .4 + C(a + b) / 5 + P(C((o *
-                            (a + 1) + (B > 0 ? w : -w)) / 25), 30) * .1 * (1 - B * B), o / 1e3 + .7 - o * w * 3e-6
-                    ]
-                }
-                if (c > 32) {
-                    c = c * 1.16 - .15;
-                    o = a * 45 - 20;
-                    w = b * b * h;
-                    z = o * S(c) + w * C(c) + 620;
-                    return [o * C(c) - w * S(c), 28 + C(B * .5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * .3 + P((
-                        1 - (A * A)), 7) * .15 + .3) * b, b * .7]
-                }
-                o = A * (2 - b) * (80 - c * 2);
-                w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2;
-                z = o * S(c) + w * C(c) + 700;
-                return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 +
-                    a * .1, P((1 - b), 20) / 4 + .05
-                ]
-            }
-        }
-
-        function showFlower() {
-            setInterval(
-                'for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}',
-                0)
-        }
+<body style="background: #FFF;">
+    <script type="text/javascript" src="./js/EffectItem.js"></script>
+    <script type="text/javascript" src="./js/Effect.js"></script>
+    <script type="text/javascript">
+         new Effect({
+        //特效图片，多张图片时传入数组，单个图片时传入字符串
+        effectUrl : ["./images/xue.png","./images/xin.png","./images/a1.png","./images/a2.png","./images/a3.png","./images/a4.png"],
+        //特效旋转，1/true为旋转，0/false为不旋转
+        rotate :  false,
+        //特效方向，left/right/up/down
+        direction : "up"
+    });
     </script>
 </body>
-
 </html>
