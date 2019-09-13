@@ -61,7 +61,7 @@
         this.canvas.style.top = "0px";
         this.canvas.style.left = "0px";
         this.canvas.style.width = "100%";
-        this.canvas.style.height = "90%";
+        this.canvas.style.height = "96%";
         this.canvas.style.zIndex = "9999999";
         //此属性就是本插件的王道所在，将元素虚化，任何事件都直接穿透此元素
         this.canvas.style.pointerEvents = "none";
