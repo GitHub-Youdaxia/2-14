@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://www.jq22.com/demo/jQuery-3d20160317/ -->
+<html lang="en" onmousedown="return false">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>doc</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .pic {
+            margin: 100px auto 0px;
+            /*border:1px solid #ff0000;*/
+            width: 120px;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: perspective(800px) rotateX(-10deg) rotateY(0deg);
+
+        }
+
+        body {
+            background-color: #000000;
+        }
+
+        div.pic img {
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+
+
+        }
+
+        p {
+            width: 1200px;
+            height: 1200px;
+
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            margin-top: -600px;
+            margin-left: -600px;
+            transform: rotateX(90deg);
+            border-radius: 600px;
+        }
+    </style>
+
+    <style></style>
+</head>
+
+<body style="width:100%;height:100%">
+    <div class="pic" style="transform: perspective(800px) rotateX(-2.605deg) rotateY(38.2deg);">
+        <img src="./3d相册/meinv1.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(0deg) translateZ(350px);">
+        <img src="./3d相册/meinv2.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(40deg) translateZ(350px);">
+        <img src="./3d相册/meinv3.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(80deg) translateZ(350px);">
+        <img src="./3d相册/meinv4.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(120deg) translateZ(350px);">
+        <img src="./3d相册/meinv5.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(160deg) translateZ(350px);">
+        <img src="./3d相册/meinv6.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(200deg) translateZ(350px);">
+        <img src="./3d相册/meinv7.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(240deg) translateZ(350px);">
+        <img src="./3d相册/meinv8.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(280deg) translateZ(350px);">
+        <img src="./3d相册/meinv9.jpg" draggable="false" ondragstart="return false"
+            style="transform: rotateY(320deg) translateZ(350px);">
+        <p></p>
+    </div>
+    <script language="javascript">
+        for (i in document.images) document.images[i].ondragstart = imgdragstart;
+    </script>
+    <script src="./3d相册/jquery.min(1).js"></script>
+    <script src="./3d相册/jquery.min(2).js"></script>
+    <script>
+        $(function () {
+            var imgl = $("div.pic img").size();
+            var deg = 360 / imgl;
+            var roY = 0;
+            var rox = -10;
+            var xn = 0,
+                yn = 0;
+            var play = null;
+
+            $("div.pic img").each(function (i) {
+                $(this).css({
+                    "transform": "rotateY(" + i * deg + "deg) translateZ(350px)"
+                });
+                $(this).attr('ondragstart', 'return false');
+            });
+            $(document).mousedown(function (ev) {
+
+                var x_ = ev.clientX;
+                var y_ = ev.clientY;
+                clearInterval(play);
+                $(this).bind("mousemove", function (ev) {
+
+                    var x = ev.clientX;
+                    var y = ev.clientY;
+
+                    xn = x - x_;
+                    yn = y - y_;
+                    varyn = y - y_;
+                    roY += xn * 0.2;
+                    rox -= yn * 0.1;
+
+                    $('div.pic').css({
+                        transform: 'perspective(800px) rotateX(' + rox +
+                            'deg) rotateY(' + roY + 'deg)'
+                    })
+
+                    x_ = ev.clientX;
+                    y_ = ev.clientY;
+                });
+            }).mouseup(function () {
+                $(this).unbind("mousemove");
+                var play = setInterval(function () {
+                    xn *= 0.95;
+                    yn *= 0.95;
+                    if (Math.abs(xn) < 1 && Math.abs(yn) < 1) clearInterval(play);
+
+                    roY += xn * 0.2;
+                    rox -= yn * 0.1;
+                    $('div.pic').css({
+                        transform: 'perspective(800px) rotateX(' + rox +
+                            'deg) rotateY(' + roY + 'deg)'
+                    })
+                }, 30)
+            });
+        });
+    </script>
+
+</body>
+
+</html>
