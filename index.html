@@ -1,24 +1,363 @@
 <!DOCTYPE html>
+<!-- saved from url=(0065)http://www.17sucai.com/preview/1528155/2019-01-22/snow/index.html -->
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>嘻嘻嘻</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>祝 </title>
+
 </head>
-<body style="background: #FFF;">
-    <script type="text/javascript" src="./js/EffectItem.js"></script>
-    <script type="text/javascript" src="./js/Effect.js"></script>
-    <script type="text/javascript">
-         new Effect({
-        //特效图片，多张图片时传入数组，单个图片时传入字符串
-        effectUrl : ["./images/xue.png","./images/xin.png","./images/a1.png","./images/a2.png","./images/a3.png","./images/a4.png"],
-        //特效旋转，1/true为旋转，0/false为不旋转
-        rotate :  false,
-        //特效方向，left/right/up/down
-        direction : "up"
-    });
+
+<body>
+    <!-- 玫瑰 -->
+    <canvas id="snowBackground"></canvas>
+    <!-- 中间红心 -->
+    <canvas id="pinkboard"></canvas>
+    <!-- 飘着的红心 -->
+    <canvas id="xin"></canvas>
+    <!-- <img id="nameTextImg" src="sunlina.png" alt=""> -->
+    <div class="test" style="display: none;">
+        <p class="name"><span></span></p>
+    </div>
+    <style>
+        #snowBackground {
+            z-index: 101;
+            transition: all 4s;
+        }
+
+        #snowBackground.end {
+            transform: scale(0.5);
+
+        }
+
+        #snowBackground.end2 {
+            transform-origin: bottom;
+        }
+
+        #pinkboard {
+            z-index: 102;
+        }
+
+        #xin {
+            z-index: 103;
+        }
+
+        .person-img {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+    </style>
+    <img class="person-img" src="./images/hunan.jpg" alt="" style="">
+    <!-- <canvas id="pinkboard" width="1920" height="889"></canvas> -->
+    <script src="jquery.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script>
+        (function () {
+            var girl = '小可爱宝贝';
+            var boy = '海绵宝宝';
+            document.title = '要天天开心哦！\\(^o^)/';
+            $('.name').find('span').text(girl);
+            setTimeout(() => {
+                layer.confirm('请小可爱回答一个问题', {
+                    btn: ['开始回答啦'] //按钮
+                }, function () {
+                    Step1()
+                }, function () {
+
+                });
+            }, 3000);
+            function Step1() {
+                // 第一个问题
+                layer.confirm('你觉得海绵宝宝怎么样？', {
+                    btn: ['很可爱', '很冷漠'] //按钮
+                }, function () {
+                    Step2()
+                }, function () {
+
+                    Step4()
+                });
+            }
+            function Step2() {
+                layer.confirm('嘻嘻嘻#^_^# ', {
+                    btn: ['下个问题'] //按钮
+                }, function () {
+                    Step3();
+                }, function () {
+                });
+            }
+            let num = 0
+            function Step3() {
+                layer.confirm('你想对' + boy + '做什么？', {
+                    btn: ['抱抱#^_^#', '乱锤（＞﹏＜）'] //按钮
+                }, function () {
+                    layer.confirm(`#^_^#，就知道你会选抱抱`, {
+                        btn: ['来抱抱']
+                    }, function () {
+                        lastStep();
+                    });
+                }, function () {
+                    layer.confirm(`〒_〒，北京这座城市有个人伤心了${++num}次`, {
+                        btn: ['再选一次嘛']
+                    }, function () {
+                        Step3()
+                    });
+                });
+            }
+            function Step4() {
+                layer.confirm('我会好好改正的，爱你哦', {
+                    btn: ['下个问题'] //按钮
+                }, function () {
+                    Step3();
+                }, function () {
+
+                });
+            }
+
+            function showCaiDan() {
+                showFlower();
+                setTimeout(() => {
+                    $('#snowBackground').addClass('end')
+                    setTimeout(() => {
+                        $('#snowBackground').addClass('end2')
+                    }, 4000);
+                }, 4000);
+            }
+
+            function lastStep() {
+                $('.test').show().animate({
+                    opacity: '1',
+                    fontSize: "50px",
+                }, 7000);
+                layer.msg('还有一个彩蛋哟！找一找吧=^_^=');
+                setTimeout(function () {
+                
+                    $('.test').on('click', function () {
+                        $(this).off('click');
+                        layer.confirm('你发现了彩蛋！', {
+                            btn: ['想看', '不想看'] //按钮
+                        }, function () {
+                            layer.msg('送给你\\^o^/');
+                            showCaiDan();
+                        }, function () {
+                            layer.msg('我的程序我做主，不想看也得看,哇哈哈！');
+                            showCaiDan();
+                        });
+                    })
+                }, 4000)
+            }
+
+        })()
     </script>
-        <script src="jquery.min.js"></script>
-        <script src="layer/layer.js"></script>
+    <script src="pinkboard.js"></script>
+
+    <script src="xin.js"></script>
+
+    <!-- <script src="Snow.js">
+
+    </script> -->
+    <canvas id="c" height="500" width="500"></canvas>
+    <script>
+        var b = document.body;
+        var c = document.getElementsByTagName('canvas')[0];
+        var a = c.getContext('2d');
+        document.body.clientWidth;
+    </script>
+    <script>
+        with (m = Math) C = cos, S = sin, P = pow, R = random;
+        c.width = c.height = f = 500;
+        h = -250;
+
+        function p(a, b, c) {
+            if (c > 60) return [S(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) - S(b) * 50, b * f + 50, 625 + C(a * 7) * (13 +
+                5 / (.2 + P(b * 4, 4))) + b * 400, a * 1 - b / 2, a];
+            A = a * 2 - 1;
+            B = b * 2 - 1;
+            if (A * A + B * B < 1) {
+                if (c > 37) {
+                    n = (j = c & 1) ? 6 : 4;
+                    o = .5 / (a + .01) + C(b * 125) * 3 - a * 300;
+                    w = b * h;
+                    return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) *
+                        99 - j * 300, .4 - a * .1 + P(1 - B * B, -h * 6) * .15 - a * b * .4 + C(a + b) / 5 + P(C((o *
+                            (a + 1) + (B > 0 ? w : -w)) / 25), 30) * .1 * (1 - B * B), o / 1e3 + .7 - o * w * 3e-6
+                    ]
+                }
+                if (c > 32) {
+                    c = c * 1.16 - .15;
+                    o = a * 45 - 20;
+                    w = b * b * h;
+                    z = o * S(c) + w * C(c) + 620;
+                    return [o * C(c) - w * S(c), 28 + C(B * .5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * .3 + P((
+                        1 - (A * A)), 7) * .15 + .3) * b, b * .7]
+                }
+                o = A * (2 - b) * (80 - c * 2);
+                w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2;
+                z = o * S(c) + w * C(c) + 700;
+                return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 +
+                    a * .1, P((1 - b), 20) / 4 + .05
+                ]
+            }
+        }
+
+        function showFlower() {
+            setInterval(
+                'for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}',
+                0)
+        }
+    </script>
+    <style>
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #001;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#snowBackground {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#pinkboard {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 600px;
+    height: 600px;
+}
+
+#xin {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#nameTextImg{
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+}
+.layui-layer-dialog{
+    margin: auto;
+    left: 0;
+    right: 0;
+    top:0;
+}
+.layui-layer-title,.layui-layer-close{display: none !important;}
+
+.test{
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #FFF;
+    text-align: center;
+    height: 50px;
+    z-index: 111;
+    opacity:0;
+  
+}
+.test p:first-child {
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #fff;
+  }
+
+  .test p:first-child span {
+    cursor: pointer;
+    text-shadow: 0px 0px 6px #686868,
+      0px 1px 1px #ddd,
+      0px 2px 1px #d6d6d6,
+      0px 3px 1px #ccc,
+      0px 4px 1px #c5c5c5,
+      0px 5px 1px #c1c1c1,
+      0px 6px 1px #bbb,
+      0px 7px 1px #777,
+      0px 8px 3px rgba(100, 100, 100, 0.4),
+      0px 9px 5px rgba(100, 100, 100, 0.1),
+      0px 10px 7px rgba(100, 100, 100, 0.15),
+      0px 11px 9px rgba(100, 100, 100, 0.2),
+      0px 12px 11px rgba(100, 100, 100, 0.25),
+      0px 13px 15px rgba(100, 100, 100, 0.3);
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    position: relative;
+    top:-50px; 
+  }
+
+/* --------------------------- 固定屏幕样式 ---------------------------------------- */
+
+/*960~1199*/
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*768~959*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*480~767*/
+@media only screen and (min-width: 360px) and (max-width: 767px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*320~479*/
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+/*240~319*/
+@media only screen and (max-width: 319px) {
+    #pinkboard{
+        width: 320px;
+        height: 360px;
+       
+    }
+}
+
+    </style>
 </body>
+
 </html>
